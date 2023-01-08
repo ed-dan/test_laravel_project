@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('positions', function (Blueprint $table) {
+        Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->string("job_position");
+            $table->string('title');
+            $table->string('tags');
+            $table->string('company');
+            $table->string('location');
+            $table->string('email');
+            $table->string('website');
+            $table->longText('description');
             $table->timestamps();
-        });
-        Schema::table('employees', function (Blueprint $table) {
-            $table->foreign('job_position_id', 'job_position_fk')
-                ->references('id')
-                ->on('positions');
         });
     }
 
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('positions');
+        Schema::dropIfExists('listings');
     }
 };
