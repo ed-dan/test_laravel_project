@@ -22,8 +22,10 @@
             },
         }
     </script>
-    <title>LaraGigs | Find Laravel Jobs & Projects</title>
+    <title>OrangeFinds</title>
 </head>
+
+<x-flash-message />
 
 
 <body class="mb-48">
@@ -50,14 +52,14 @@
                     </form>
                 </li>
             @else
-                <li>
+                <div style="; left:280px; top:20px;">
                     <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
-                </li>
-                <li>
                     <a href="/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
-                </li>
+                </div>
             @endauth
         </ul>
+        <a href="/listings/create" class="hover:text-laravel"><i
+                class="fa-solid fa-arrow-right-to-bracket"></i> Create listing</a>
     </nav>
 </div>
 

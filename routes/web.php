@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 
@@ -14,22 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => Listing::all()
-    ]);
-});
+// show all listing
+Route::get('/', [ListingController::class,'index']);
+// create listing
+Route::get('/listings/create',[ListingController::class, 'create']);
 
-Route::get('/listing/{id}', function ($id) {
-    $listing = Listing::find($id);
+// store listing data
+Route::post('/listings',[ListingController::class, 'store']);
 
-    if ($listing) {
-        return view('listing', [
-            'listing' => $listing
-        ]);
-    }else{
-        abort('404');
-    }
+// show edit form
+Route::get('/listings/{listing}/edit',[ListingController::class, 'edit']);
 
-});
+// must be under create and store route
+// show one listing
+Route::get('/listings/{listing}',[ListingController::class, 'show']);

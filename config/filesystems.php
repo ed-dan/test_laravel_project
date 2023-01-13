@@ -12,8 +12,8 @@ return [
     | based disks are available to your application. Just store away!
     |
     */
-
-    'default' => env('FILESYSTEM_DISK', 'local'),
+                                                            // change from local to public but i don't know why
+    'default' => env('FILESYSTEM_DISK', 'public'),
 
     /*
     |--------------------------------------------------------------------------
